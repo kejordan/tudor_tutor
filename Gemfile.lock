@@ -20,6 +20,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active-model-adapter-source (2.0.3)
+      ember-data-source (>= 1.13, < 3.0)
     active_model_serializers (0.9.4)
       activemodel (>= 3.2)
     activejob (4.2.5.1)
@@ -52,6 +54,9 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     debug_inspector (0.0.2)
+    ember-data-source (2.3.3)
+      ember-source (>= 2, < 3.0)
+    ember-source (2.3.1)
     erubis (2.7.0)
     execjs (2.6.0)
     globalid (0.3.6)
@@ -144,6 +149,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active-model-adapter-source (~> 2.0)
   active_model_serializers
   byebug
   coffee-rails (~> 4.1.0)
