@@ -18,9 +18,10 @@ class User < ActiveRecord::Base
     end
   end
 
-  def generate_auth_token
-    loop do
-    token = SecureRandom.urlsafe_base64(15)
-    break token unless User.where(authentication_token: token).any?
+    def generate_auth_token
+      loop do
+        token = SecureRandom.urlsafe_base64(15)
+        break token unless User.where(authentication_token: token).any?
+    end
   end
 end
