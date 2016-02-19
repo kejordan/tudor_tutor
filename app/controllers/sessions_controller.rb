@@ -1,13 +1,14 @@
 class SessionsController < ApplicationController
   respond_to :html, :json
   skip_before_filter  :verify_authenticity_token
+  skip_before_filter :authenticate!
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
   def create
-    user = User.authenticate(user_params)
+    user = User.authenticate_user(user_params)
     if user
       data = {
-        token: user.token,
+        token: user.authentication_token,
         email: user.email
       }
       render json: data, status: 201
