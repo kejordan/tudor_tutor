@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
 
     def generate_auth_token
       loop do
-        token = SecureRandom.urlsafe_base64(15)
+        token = Devise.friendly_token
         break token unless User.where(authentication_token: token).any?
     end
   end
