@@ -10,4 +10,5 @@ Rails.application.routes.draw do
     end
   end
   post "/users/sign_in", to: "sessions#create"
+  post "/users/sign_up", to: "users#create"
 end
