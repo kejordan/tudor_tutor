@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   has_secure_password
   before_save :verify_authentication_token
 
-  def self.authenticate(params)
-    user = self.where(params[:user][:email])
-    user if user && user.authenticate(params[:user][:password])
+  def self.authenticate_user(params)
+    user = self.where("email = ?", params[:email]).first
+    user if user && user.authenticate(params[:password])
   end
 
   private
