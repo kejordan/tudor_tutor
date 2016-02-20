@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   has_many :contents
   before_save :verify_authentication_token
 
-  def self.authenticate(credentials)
-    user = self.find_by(email: credentials[:email])
-    user if user && user.authenticate(credentials[:password])
+  def self.authenticate_user(params)
+    user = self.where("email = ?", params[:email]).first
+    user if user && user.authenticate(params[:password])
   end
 
   private
@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
     def generate_auth_token
       loop do
-        token = Devise.friendly_token
+        token = SecureRandom.urlsafe_base64(15)
         break token unless User.where(authentication_token: token).first
     end
   end
