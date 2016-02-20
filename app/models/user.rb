@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_many :user_programs
   has_many :programs, through: :user_programs
   has_many :contents
-  has_secure_password
   before_save :verify_authentication_token
 
   def self.authenticate(credentials)
@@ -21,7 +20,7 @@ class User < ActiveRecord::Base
     def generate_auth_token
       loop do
         token = Devise.friendly_token
-        break token unless User.where(authentication_token: token).any?
+        break token unless User.where(authentication_token: token).first
     end
   end
 end

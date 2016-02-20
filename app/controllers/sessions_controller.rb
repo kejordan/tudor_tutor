@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   respond_to :html, :json
 
   def create
-    user = User.authenticate(user_params)
     super do |user|
       if request.format.json?
       data = {
@@ -10,9 +9,8 @@ class SessionsController < ApplicationController
         email: user.email
       }
       render json: data, status: 201 and return
+      end
     end
-  end
-
   end
 
   private
