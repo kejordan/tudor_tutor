@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
   end
 
   def render_unauthorized
-    binding.pry
     render json: {
       errors: ['Bad credentials'] }, status: 401
   end

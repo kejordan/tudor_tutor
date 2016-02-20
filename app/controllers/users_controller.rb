@@ -20,6 +20,11 @@ class Api::V1::UsersController < ApplicationController
     render json: user.destroy
   end
 
+  # def me
+
+  #   render json: current_user
+  # end
+
   private
 
   def user
