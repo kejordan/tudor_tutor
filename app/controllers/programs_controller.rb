@@ -1,4 +1,4 @@
-class APi::V1::ProgramsController < ApplicationController
+class Api::V1::ProgramsController < ApplicationController
 
   def index
     render json: Program.all

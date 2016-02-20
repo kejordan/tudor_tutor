@@ -14,7 +14,6 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_token
-    binding.pry
     authenticate_with_http_token do |token, options|
       User.find_by(authentication_token: token)
     end
