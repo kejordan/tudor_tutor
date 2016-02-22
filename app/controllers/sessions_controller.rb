@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   include ActionController::HttpAuthentication::Token::ControllerMethods
 
   def create
+    binding.pry
     user = User.authenticate_user(user_params)
     if user
       data = {
