@@ -7,11 +7,12 @@ Rails.application.routes.draw do
       resources :contents
       resources :users
       resources :programs
-      binding.pry
       post "/users/sign_in", to: "sessions#create"
       post "/users/sign_up", to: "users#create"
       post 'programs', to: 'programs#index'
+      post 'programs/:id', to: 'programs#show'
       get 'users/me', to: 'users#me'
+      # post 'program/:id', to: 'programs#show'
     end
   end
 end
