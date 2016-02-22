@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :programs
     end
   end
+  
   post "/users/sign_in", to: "sessions#create"
   post "/users/sign_up", to: "users#create"
   get "/me", to: "users#me"

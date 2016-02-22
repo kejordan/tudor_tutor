@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   def self.authenticate_user(params)
     user = self.where("email = ?", params[:email]).any?
-    user if user && user.verify_authentication_token
+    user if user && user.authenticate!(params[:password])
   end
 
   private
