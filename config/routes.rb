@@ -7,9 +7,10 @@ Rails.application.routes.draw do
       resources :contents
       resources :users
       resources :programs
+      binding.pry
       post "/users/sign_in", to: "sessions#create"
       post "/users/sign_up", to: "users#create"
-      post 'program', to: 'programs#index'
+      post 'programs', to: 'programs#index'
       get 'users/me', to: 'users#me'
     end
   end

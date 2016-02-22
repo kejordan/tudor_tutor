@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   include ActionController::Serialization
   include ActionController::HttpAuthentication::Token::ControllerMethods
   protect_from_forgery with: :exception
-  before_action :authenticate!
+  # before_action :authenticate!
 
 
   private
