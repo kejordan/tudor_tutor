@@ -11,7 +11,7 @@ Rails.application.routes.draw do
       post "/users/sign_up", to: "users#create"
       post 'programs', to: 'programs#index'
       post 'contents', to: 'contents#index'
-    end
- 
+      post 'programs/:id', to: 'programs#show'
+    end 
   end
 end
