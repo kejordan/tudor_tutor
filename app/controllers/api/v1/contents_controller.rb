@@ -27,7 +27,7 @@ class Api::V1::ContentsController < ApplicationController
   end
 
   def content_params
-    params.require(:content).permit(:user_id)
+    params.require(:content).permit(:user_id,:title, :content)
   end
 
 end
