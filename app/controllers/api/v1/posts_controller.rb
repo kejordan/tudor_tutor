@@ -5,7 +5,6 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def show
-    # binding.pry
     render json: post
   end
 
@@ -28,7 +27,7 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:title, :post, :program_id)
+    params.require(:post).permit(:title, :post_content, :program_id)
   end
 
 end
