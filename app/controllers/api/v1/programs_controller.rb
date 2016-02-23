@@ -1,4 +1,5 @@
 class Api::V1::ProgramsController < ApplicationController
+  skip_before_filter  :verify_authenticity_token
 
   def index
     render json: Program.all

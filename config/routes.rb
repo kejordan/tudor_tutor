@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       post 'programs', to: 'programs#index'
       post 'posts', to: 'posts#index'
       post 'programs/:id', to: 'programs#show'
-    end 
+      post 'programs/new', to: 'programs#create'
+    end
   end
 end
