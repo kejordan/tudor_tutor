@@ -28,7 +28,7 @@ class Api::V1::ProgramsController < ApplicationController
   end
 
   def program_params
-    params.require(:program).permit(:title)
+    params.require(:program).permit(:title, :you_tube_id)
   end
 
 end
