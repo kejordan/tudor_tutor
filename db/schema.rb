@@ -11,26 +11,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160223014848) do
+ActiveRecord::Schema.define(version: 20160223181952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "contents", force: :cascade do |t|
-    t.integer  "user_id"
+  create_table "posts", force: :cascade do |t|
+    t.integer  "program_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "content"
+    t.string   "post"
     t.string   "title"
   end
 
-  add_index "contents", ["user_id"], name: "index_contents_on_user_id", using: :btree
+  add_index "posts", ["program_id"], name: "index_posts_on_program_id", using: :btree
 
   create_table "programs", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "post_id"
   end
+
+  add_index "programs", ["post_id"], name: "index_programs_on_post_id", using: :btree
 
   create_table "signups", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -57,7 +60,8 @@ ActiveRecord::Schema.define(version: 20160223014848) do
     t.string   "authentication_token"
   end
 
-  add_foreign_key "contents", "users"
+  add_foreign_key "posts", "programs"
+  add_foreign_key "programs", "posts"
   add_foreign_key "user_programs", "programs"
   add_foreign_key "user_programs", "users"
 end

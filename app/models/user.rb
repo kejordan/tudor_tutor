@@ -1,7 +1,6 @@
 class User < ActiveRecord::Base
   has_many :user_programs
   has_many :programs, through: :user_programs
-  has_many :contents
   has_secure_password
   before_save :verify_authentication_token
 
